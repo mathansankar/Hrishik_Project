@@ -1,0 +1,340 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.7">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 16.0px 0.0px; font: 12.0px Helvetica; color: #151516; -webkit-text-stroke: #151516}
+    p.p2 {margin: 0.0px 0.0px 16.0px 0.0px; font: 12.0px Helvetica; color: #151516; -webkit-text-stroke: #151516; min-height: 14.0px}
+    span.s1 {font-kerning: none}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1">&lt;!--</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>This is a complete, self-contained HTML file to simulate a simple mTrip-style app.</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>It's designed to be a great school project for a 7th-grade student.</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>The key features are:</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>1. A responsive layout that works well on mobile and desktop.</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>2. A simple navigation menu to switch between different content sections.</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>3. A data-driven approach, where content is loaded from a JavaScript object.</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>4. A modal pop-up for displaying detailed information about each item.</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>5. A splash screen to make the project feel more like a real mobile app.</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>Feel free to replace all the placeholder data and images with information</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>about your favorite real-world travel destinations!</span></p>
+<p class="p1"><span class="s1">--&gt;</span></p>
+<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
+<p class="p1"><span class="s1">&lt;html lang="en"&gt;</span></p>
+<p class="p1"><span class="s1">&lt;head&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;title&gt;My Travel Guide&lt;/title&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;!-- Mobile App Settings --&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta name="theme-color" content="#292F38"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;link rel="apple-touch-icon" href="https://placehold.co/192x192/292F38/white?text=Guide"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;link rel="shortcut icon" href="https://placehold.co/192x192/292F38/white?text=Guide"&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;!-- Tailwind CSS and Font Awesome for icons --&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;style&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>body {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-family: 'Inter', sans-serif;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background-color: #f3f4f6;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>visibility: hidden;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>opacity: 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>transition: visibility 0s, opacity 0.5s linear;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>body.visible {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>visibility: visible;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>opacity: 1;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/* Styling for the splash screen */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>#splash-screen {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>position: fixed;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>top: 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>left: 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 100%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 100%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background-color: #292F38;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #fff;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: flex;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>flex-direction: column;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>justify-content: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>align-items: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>z-index: 2000;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>transition: opacity 0.5s ease-out;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.splash-text {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 2.5rem;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-weight: bold;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-bottom: 1rem;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>animation: pulse 2s infinite;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/* General modal styling */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.modal-overlay {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>position: fixed;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>top: 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>left: 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 100%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 100%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background-color: rgba(0, 0, 0, 0.7);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: none;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>justify-content: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>align-items: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>z-index: 1000;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.modal-content {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background-color: #fff;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 2.5rem;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 1.5rem;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>max-width: 90%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>max-height: 90%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>overflow-y: auto;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>position: relative;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>animation: fadeIn 0.3s ease-out;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.modal-close-btn {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>position: absolute;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>top: 1rem;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>right: 1rem;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: none;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border: none;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 2rem;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #4b5563;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>cursor: pointer;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.modal-img {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>max-height: 25rem;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 100%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>object-fit: cover;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 1rem;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-bottom: 1.5rem;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/* Animations */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>@keyframes fadeIn {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>from { opacity: 0; transform: scale(0.95); }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>to { opacity: 1; transform: scale(1); }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>@keyframes pulse {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>0%, 100% { transform: scale(1); }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>50% { transform: scale(1.05); }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/* Custom styles for navigation buttons */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.nav-btn {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>@apply flex-1 p-4 rounded-lg text-center text-gray-500 font-semibold transition-colors duration-200;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.nav-btn.active {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>@apply bg-white shadow-md text-gray-800;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
+<p class="p1"><span class="s1">&lt;body&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;!-- Splash Screen --&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div id="splash-screen"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h1 class="splash-text"&gt;My Travel Guide&lt;/h1&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;i class="fas fa-plane fa-3x animate-pulse"&gt;&lt;/i&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;!-- Main App Container --&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div id="app-container" class="hidden"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;!-- Header --&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;header class="bg-white p-4 shadow-md rounded-b-2xl"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;h1 class="text-3xl font-extrabold text-center text-gray-800"&gt;Explore Paris&lt;/h1&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/header&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;!-- Navigation Bar --&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;nav class="bg-gray-100 p-2 mt-4 rounded-xl shadow-inner mx-4"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="flex justify-around"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;button id="nav-places" class="nav-btn active"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;i class="fas fa-map-marker-alt mr-2"&gt;&lt;/i&gt; Places</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;button id="nav-food" class="nav-btn"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;i class="fas fa-utensils mr-2"&gt;&lt;/i&gt; Food &amp; Drink</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;button id="nav-activities" class="nav-btn"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;i class="fas fa-person-hiking mr-2"&gt;&lt;/i&gt; Activities</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/nav&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;!-- Main Content Area --&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;main id="content-container" class="p-4 mt-4"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;!-- Content for each section will be loaded here --&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/main&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;!-- Modal Pop-up for Details --&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div id="modal-overlay" class="modal-overlay"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div id="modal-content" class="modal-content"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;button id="modal-close-btn" class="modal-close-btn"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;i class="fas fa-times"&gt;&lt;/i&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;img id="modal-image" class="modal-img" src="" alt="Item image"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;h3 id="modal-title" class="text-3xl font-bold text-gray-800 mb-2"&gt;&lt;/h3&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;p id="modal-description" class="text-gray-600 mb-4"&gt;&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;p class="text-sm text-gray-500 italic"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;span class="font-semibold"&gt;Best Time to Visit:&lt;/span&gt;<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;span id="modal-fact"&gt;&lt;/span&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>// Data for the travel guide</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const appData = {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>places: [</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>name: 'Eiffel Tower',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>image: 'https://placehold.co/600x400/8c8c8c/white?text=Eiffel+Tower',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>description: 'The iconic symbol of Paris, this iron lattice tower is a must-see landmark. It was built in 1889 for the World\'s Fair.',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>fact: 'The tower can be 15 cm taller during the summer due to thermal expansion of the iron.'</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>name: 'Louvre Museum',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>image: 'https://placehold.co/600x400/6f6f6f/white?text=Louvre+Museum',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>description: 'Home to thousands of works of art, including the Mona Lisa. It is one of the world\'s largest museums.',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>fact: 'The glass pyramid was not part of the original design and was added in 1989.'</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>name: 'Notre-Dame Cathedral',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>image: 'https://placehold.co/600x400/9e9e9e/white?text=Notre-Dame',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>description: 'A magnificent medieval Catholic cathedral on the Île de la Cité in Paris.',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>fact: 'The construction of the cathedral began in 1163 and was largely completed by 1260.'</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>],</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>food: [</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>name: 'Macarons',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>image: 'https://placehold.co/600x400/d4a373/black?text=Macarons',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>description: 'Sweet meringue-based confection made with egg whites, icing sugar, granulated sugar, and almond meal.',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>fact: 'The macaron as we know it today was popularized by Parisian pastry chef Pierre Desfontaines.'</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>name: 'French Onion Soup',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>image: 'https://placehold.co/600x400/a87a55/white?text=Onion+Soup',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>description: 'A traditional French soup based on meat stock and onions, usually served with croutons and cheese.',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>fact: 'The soup has a long history, dating back to Roman times, but the modern version became popular in the 18th century.'</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>],</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>activities: [</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>name: 'Seine River Cruise',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>image: 'https://placehold.co/600x400/7a97b2/white?text=River+Cruise',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>description: 'Enjoy a beautiful cruise along the Seine River, offering unique views of Paris landmarks.',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>fact: 'The Seine is 777 kilometers long and flows through Paris to the English Channel.'</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>name: 'Montmartre Tour',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>image: 'https://placehold.co/600x400/b0c4de/white?text=Montmartre',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>description: 'Explore the artistic district of Montmartre, home to the Sacré-Cœur Basilica and many painters.',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>fact: 'Montmartre has been the home of many famous artists including Picasso, Van Gogh, and Dali.'</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>]</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>};</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>// Get DOM elements</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const appContainer = document.getElementById('app-container');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const contentContainer = document.getElementById('content-container');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const navButtons = document.querySelectorAll('.nav-btn');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const modalOverlay = document.getElementById('modal-overlay');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const modalCloseBtn = document.getElementById('modal-close-btn');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const modalImage = document.getElementById('modal-image');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const modalTitle = document.getElementById('modal-title');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const modalDescription = document.getElementById('modal-description');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const modalFact = document.getElementById('modal-fact');</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>// Function to create and display cards for a given category</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>function renderContent(category) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>contentContainer.innerHTML = ''; // Clear previous content</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const items = appData[category];</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>items.forEach((item, index) =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const cardHtml = `</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 cursor-pointer p-4 mb-6" data-category="${category}" data-index="${index}"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;img src="${item.image}" alt="${item.name}" class="w-full h-48 object-cover rounded-lg mb-4"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;h2 class="text-xl font-semibold text-gray-800"&gt;${item.name}&lt;/h2&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>contentContainer.innerHTML += cardHtml;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>// Add click listeners to the new cards</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>contentContainer.querySelectorAll('div[data-index]').forEach(card =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>card.addEventListener('click', () =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>const category = card.getAttribute('data-category');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>const index = card.getAttribute('data-index');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>showModal(appData[category][index]);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>// Function to show the modal with item details</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>function showModal(item) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>modalImage.src = item.image;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>modalImage.alt = item.name;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>modalTitle.textContent = item.name;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>modalDescription.textContent = item.description;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>modalFact.textContent = item.fact;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>modalOverlay.style.display = 'flex';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>// Function to hide the modal</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>function hideModal() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>modalOverlay.style.display = 'none';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>// Event listener for navigation buttons</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>navButtons.forEach(button =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>button.addEventListener('click', () =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Remove active class from all buttons</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>navButtons.forEach(btn =&gt; btn.classList.remove('active'));</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Add active class to the clicked button</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>button.classList.add('active');</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Get the category from the button's ID (e.g., 'nav-places' -&gt; 'places')</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const category = button.id.replace('nav-', '');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>renderContent(category);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>});</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>// Event listener to close the modal</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>modalCloseBtn.addEventListener('click', hideModal);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>modalOverlay.addEventListener('click', (event) =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (event.target === modalOverlay) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>hideModal();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>});</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>// Splash screen and initial content rendering</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>window.addEventListener('load', () =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const splashScreen = document.getElementById('splash-screen');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const body = document.body;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>setTimeout(() =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>splashScreen.style.opacity = '0';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>setTimeout(() =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>splashScreen.remove();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>appContainer.classList.remove('hidden'); // Show the main app content</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>body.classList.add('visible');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>renderContent('places'); // Render the initial content</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}, 500);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}, 2000);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+</body>
+</html>
